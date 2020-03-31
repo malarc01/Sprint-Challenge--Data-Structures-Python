@@ -1,5 +1,8 @@
 import time
 
+import os
+import sys
+
 
 class BinarySearchTree:
     def __init__(self, value):
@@ -56,6 +59,8 @@ class BinarySearchTree:
 
 
 start_time = time.time()
+# print(os.getcwd())
+# print("Current working dir : %s" % os.getcwd())
 
 f = open('names_1.txt', 'r')
 names_1 = f.read().split("\n")  # List containing 10000 names
@@ -72,17 +77,18 @@ tree = BinarySearchTree('Testing')
 
 for name in names_1:
     tree.insert(name)
-
+print('done')
 for name in names_2:
     found_name = tree.contains(name)
     if found_name is not None:
         duplicates.append(found_name)
 
+print('done')
 
 # for name_1 in names_1:
-    # for name_2 in names_2:
-        # if name_1 == name_2:
-        # duplicates.append(name_1)
+# for name_2 in names_2:
+# if name_1 == name_2:
+# duplicates.append(name_1)
 
 end_time = time.time()
 print(f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
